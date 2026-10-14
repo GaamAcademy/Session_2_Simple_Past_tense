@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Simple Tense — Comprehensive Mastery Assessment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-cream: #f7f5f0;
+      --card-bg: #ffffff;
+      --primary-teal: #9bc4be;
+      --primary-teal-dark: #244b46;
+      --primary-teal-medium: #5a8a83;
+      --soft-sand: #ded7cc;
+      --sand-light: #f3efe8;
+      --charcoal: #1c2826;
+      --text-muted: #576562;
+      --border-dark: #244b46;
+      --correct-green: #2d8a5b;
+      --correct-bg: #eaf6ef;
+      --wrong-red: #c0392b;
+      --wrong-bg: #fdeeee;
+      --shadow-subtle: 0 4px 18px rgba(28, 40, 38, 0.06);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-pill: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--charcoal);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-header {
+      background-color: #ffffff;
+      border-bottom: 2px solid var(--border-dark);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .series-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background-color: var(--primary-teal);
+      color: var(--primary-teal-dark);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border-dark);
+    }
+
+    .header-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    /* Branded Logo Area */
+    .logo-placeholder {
+      width: 140px;
+      height: 44px;
+      border: 2px dashed var(--primary-teal-medium);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--sand-light);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-teal-dark);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    main.main-content {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    .test-progress-bar-wrap {
+      background: #ffffff;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .progress-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-teal-dark);
+    }
+
+    .track {
+      height: 10px;
+      background-color: var(--sand-light);
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border-dark);
+      overflow: hidden;
+    }
+
+    .track-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-teal), var(--primary-teal-dark));
+      width: 5%;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .questions-nav-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--soft-sand);
+    }
+
+    .q-pill {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-dark);
+      background-color: #ffffff;
+      color: var(--charcoal);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .q-pill:hover {
+      background-color: var(--sand-light);
+    }
+
+    .q-pill.active {
+      background-color: var(--primary-teal);
+      border-color: var(--primary-teal-dark);
+      transform: scale(1.08);
+    }
+
+    .q-pill.answered {
+      background-color: var(--sand-light);
+      color: var(--primary-teal-dark);
+    }
+
+    .q-pill.correct {
+      background-color: var(--correct-bg);
+      border-color: var(--correct-green);
+      color: var(--correct-green);
+    }
+
+    .q-pill.incorrect {
+      background-color: var(--wrong-bg);
+      border-color: var(--wrong-red);
+      color: var(--wrong-red);
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-card {
+      background-color: #ffffff;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .level-badge {
+      font-size: 12px;
+      font-weight: 800;
+      background-color: var(--soft-sand);
+      border: 1.5px solid var(--border-dark);
+      padding: 3px 12px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-heading {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary-teal-dark);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
+
+    .syllabus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .syllabus-item {
+      background-color: var(--sand-light);
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .syllabus-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary-teal-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .syllabus-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .test-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 2px dashed var(--soft-sand);
+    }
+
+    .mode-switch-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .switch-label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      padding: 12px 24px;
+      cursor: pointer;
+      border: 2px solid var(--border-dark);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-teal);
+      color: var(--charcoal);
+      box-shadow: 0 3px 0 var(--border-dark);
+    }
+
+    .btn-primary:hover {
+      background-color: #8bbab4;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 var(--border-dark);
+    }
+
+    .btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--charcoal);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--sand-light);
+    }
+
+    .btn-dark {
+      background-color: var(--primary-teal-dark);
+      color: #ffffff;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .question-card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 24px;
+    }
+
+    .question-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background-color: var(--sand-light);
+      border: 1px solid var(--border-dark);
+      color: var(--primary-teal-dark);
+    }
+
+    .q-type-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .question-stem {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.35;
+      margin-bottom: 22px;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background-color: #ffffff;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      width: 100%;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--sand-light);
+      transform: translateX(3px);
+    }
+
+    .option-marker {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1.5px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      background-color: var(--sand-light);
+      flex-shrink: 0;
+    }
+
+    .option-btn.selected {
+      background-color: #eaf4f2;
+      border-color: var(--primary-teal-dark);
+    }
+
+    .option-btn.selected .option-marker {
+      background-color: var(--primary-teal);
+      color: var(--primary-teal-dark);
+    }
+
+    .option-btn.is-correct {
+      background-color: var(--correct-bg) !important;
+      border-color: var(--correct-green) !important;
+      color: #145532 !important;
+    }
+
+    .option-btn.is-correct .option-marker {
+      background-color: var(--correct-green) !important;
+      color: #ffffff !important;
+      border-color: var(--correct-green) !important;
+    }
+
+    .option-btn.is-wrong {
+      background-color: var(--wrong-bg) !important;
+      border-color: var(--wrong-red) !important;
+      color: #7b1d12 !important;
+    }
+
+    .option-btn.is-wrong .option-marker {
+      background-color: var(--wrong-red) !important;
+      color: #ffffff !important;
+      border-color: var(--wrong-red) !important;
+    }
+
+    .fill-input-box {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .conjugation-field {
+      flex: 1;
+      max-width: 380px;
+      padding: 13px 18px;
+      font-size: 16px;
+      font-family: inherit;
+      font-weight: 600;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      outline: none;
+      background-color: #ffffff;
+      transition: border-color 0.2s;
+    }
+
+    .conjugation-field:focus {
+      border-color: var(--primary-teal-medium);
+      box-shadow: 0 0 0 3px rgba(155, 196, 190, 0.4);
+    }
+
+    .sentence-tokens-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 14px;
+      background-color: var(--sand-light);
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+    }
+
+    .token-btn {
+      background: #ffffff;
+      border: 1.5px solid var(--border-dark);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .token-btn:hover:not(:disabled) {
+      background-color: var(--primary-teal);
+    }
+
+    .token-btn.selected {
+      background-color: var(--primary-teal-dark);
+      color: #ffffff;
+    }
+
+    .explanation-callout {
+      display: none;
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      margin-top: 18px;
+      border-left: 5px solid var(--primary-teal-dark);
+      background-color: var(--sand-light);
+      animation: fadeIn 0.2s ease-in;
+    }
+
+    .explanation-callout.show {
+      display: block;
+    }
+
+    .exp-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .exp-body {
+      font-size: 14px;
+      color: #2b3936;
+      line-height: 1.45;
+    }
+
+    .question-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .results-hero-card {
+      background-color: #ffffff;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background-color: var(--primary-teal);
+      border: 4px solid var(--border-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .score-num {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--primary-teal-dark);
+    }
+
+    .score-total {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-teal-dark);
+    }
+
+    .diagnostic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+      text-align: left;
+    }
+
+    .diagnostic-card {
+      background-color: var(--sand-light);
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .diagnostic-badge {
+      font-size: 11px;
+      font-weight: 800;
+      background-color: var(--primary-teal);
+      color: var(--primary-teal-dark);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+      border: 1px solid var(--border-dark);
+    }
+
+    .diagnostic-score-text {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .review-item {
+      background-color: #ffffff;
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+
+    .review-item.pass {
+      border-left: 6px solid var(--correct-green);
+    }
+
+    .review-item.fail {
+      border-left: 6px solid var(--wrong-red);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .app-header {
+        padding: 12px 16px;
+      }
+      .logo-placeholder {
+        width: 100px;
+        height: 38px;
+        font-size: 9px;
+      }
+      .hero-card, .question-card, .results-hero-card {
+        padding: 22px 18px;
+      }
+      .diagnostic-grid {
+        grid-template-columns: 1fr;
+      }
+      .fill-input-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .conjugation-field {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Global Header -->
+  <header class="app-header">
+    <div class="header-branding">
+      <span class="series-tag">Grammar Test</span>
+      <h1 class="header-title">Past Simple Assessment</h1>
+    </div>
+    <!-- Branded Logo Area -->
+    <div class="logo-placeholder" title="Branded Logo Placeholder">
+      Gaam Academy
+    </div>
+  </header>
+
+  <main class="main-content">
+    
+    <!-- SCREEN 1: COVER & INSTRUCTIONS -->
+    <section id="screen-intro" class="screen active">
+      <div class="hero-card">
+        <div class="hero-badge-row">
+          <span class="level-badge">Levels A1 — B2</span>
+          <span style="font-size: 13px; font-weight: 600; color: var(--text-muted);">20 Structured Questions</span>
+        </div>
+        
+        <h2 class="hero-heading">Past Simple Mastery Assessment</h2>
+        <p class="hero-sub">
+          Test your comprehensive grasp of the English Past Simple tense: completed actions, finished time markers, regular <em>-ed</em> spelling &amp; phonetic pronunciations, <em>was/were</em> without auxiliary <em>did</em>, the invariant bare infinitive rule, storytelling sequences, unreal conditions (second conditional / <em>wish</em>), and polite social distancing.
+        </p>
+
+        <div class="syllabus-grid">
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-shapes"></i> 1. Forms &amp; Spelling</h4>
+            <p>Regular suffixes (-ed, -ied, doubled consonants), irregular changes, and /t/, /d/, /ɪd/ phonetics (A1–B1).</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-gem"></i> 2. The Verb 'Be'</h4>
+            <p>Conjugating <em>was/were</em> and <em>wasn't/weren't</em> without the auxiliary verb <em>did</em>.</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-gears"></i> 3. Auxiliary Mechanics</h4>
+            <p>Negative and question syntax with <em>did/didn't</em> + bare infinitive forms (A2).</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-calendar-xmark"></i> 4. Time &amp; Sequences</h4>
+            <p>Finished time expressions (<em>yesterday, in 2003, ago</em>) and narrative event chains.</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-code-compare"></i> 5. Past vs Present Perfect</h4>
+            <p>Identifying finished past periods vs. unspecified life experience and ongoing results.</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-wand-magic-sparkles"></i> 6. Unreal &amp; Politeness</h4>
+            <p>Second conditional (<em>If I won...</em>), <em>wish</em>, and polite present requests (B1–B2).</p>
+          </div>
+        </div>
+
+        <div class="test-controls-bar">
+          <div class="mode-switch-group">
+            <label class="switch-label">
+              <input type="checkbox" id="instant-feedback-toggle" checked style="accent-color: var(--primary-teal-dark); width: 18px; height: 18px;">
+              <span>Instant explanations after each question</span>
+            </label>
+          </div>
+          
+          <button id="btn-start" class="btn btn-primary">
+            <span>Begin Assessment</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: ACTIVE QUIZ VIEW -->
+    <section id="screen-quiz" class="screen">
+      
+      <!-- Progress Bar & Question Jump Strip -->
+      <div class="test-progress-bar-wrap">
+        <div class="progress-top-row">
+          <span id="counter-display">Question 1 of 20</span>
+          <span id="progress-percent">5% Complete</span>
+        </div>
+        <div class="track">
+          <div id="progress-fill" class="track-fill"></div>
+        </div>
+        <div class="questions-nav-strip" id="q-nav-strip">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Question Card Container -->
+      <div class="question-card">
+        <div class="question-meta-row">
+          <span id="q-section-badge" class="section-tag">Section 1: Forms &amp; Spelling</span>
+          <span id="q-type-badge" class="q-type-badge">Multiple Choice</span>
+        </div>
+
+        <h3 id="q-stem" class="question-stem">
+          Question prompt will appear here...
+        </h3>
+
+        <!-- Dynamic Answer Area -->
+        <div id="q-interactive-zone">
+          <!-- Populated by JS based on question type -->
+        </div>
+
+        <!-- Explanation callout -->
+        <div id="q-explanation-box" class="explanation-callout">
+          <div class="exp-title">
+            <i class="fa-solid fa-circle-info"></i>
+            <span id="exp-status-heading">Grammar Rule</span>
+          </div>
+          <p id="exp-text" class="exp-body">Rule text explanation...</p>
+        </div>
+      </div>
+
+      <!-- Footer Buttons -->
+      <div class="question-footer-nav">
+        <button id="btn-prev-q" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Previous</span>
+        </button>
+
+        <div style="display: flex; gap: 10px;">
+          <button id="btn-check-q" class="btn btn-primary" style="display: none;">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Check Answer</span>
+          </button>
+          <button id="btn-next-q" class="btn btn-dark">
+            <span>Next Question</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: RESULTS & DIAGNOSTIC REPORT -->
+    <section id="screen-results" class="screen">
+      <div class="results-hero-card">
+        <div class="score-circle">
+          <span id="res-score-pct" class="score-num">0%</span>
+          <span id="res-fraction" class="score-total">0 / 20</span>
+        </div>
+
+        <h2 id="res-verdict-title" style="font-size: 26px; font-weight: 800; color: var(--primary-teal-dark); margin-bottom: 8px;">
+          Assessment Completed
+        </h2>
+        <p id="res-verdict-msg" style="font-size: 15px; color: var(--text-muted); max-width: 620px; margin: 0 auto;">
+          Summary feedback will appear based on your mastery performance.
+        </p>
+
+        <!-- Category Mastery Breakdown -->
+        <div class="diagnostic-grid">
+          <div class="diagnostic-card">
+            <span class="diagnostic-badge">Forms &amp; Spelling</span>
+            <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">-ed Rules, Irregulars, /ɪd/ Phonetics</h4>
+            <div id="cat-forms-stat" class="diagnostic-score-text">0/5</div>
+            <p id="cat-forms-label" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Evaluating...</p>
+          </div>
+
+          <div class="diagnostic-card">
+            <span class="diagnostic-badge">Auxiliary 'Did' &amp; 'Be'</span>
+            <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Inversion, Bare Base Form, was/were</h4>
+            <div id="cat-aux-stat" class="diagnostic-score-text">0/5</div>
+            <p id="cat-aux-label" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Evaluating...</p>
+          </div>
+
+          <div class="diagnostic-card">
+            <span class="diagnostic-badge">Times &amp; Narratives</span>
+            <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Finished Time Markers &amp; Sequences</h4>
+            <div id="cat-time-stat" class="diagnostic-score-text">0/5</div>
+            <p id="cat-time-label" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Evaluating...</p>
+          </div>
+
+          <div class="diagnostic-card">
+            <span class="diagnostic-badge">Advanced Roles</span>
+            <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Second Conditional, Wish &amp; Politeness</h4>
+            <div id="cat-adv-stat" class="diagnostic-score-text">0/5</div>
+            <p id="cat-adv-label" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Evaluating...</p>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 14px; margin-top: 32px; flex-wrap: wrap;">
+          <button id="btn-retake" class="btn btn-primary">
+            <i class="fa-solid fa-rotate-right"></i>
+            <span>Retake Full Test</span>
+          </button>
+          <button id="btn-filter-missed" class="btn btn-secondary">
+            <i class="fa-solid fa-filter"></i>
+            <span>Review Missed Questions</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Itemized review breakdown -->
+      <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-teal-dark); margin: 32px 0 16px;">
+        Detailed Question Review
+      </h3>
+      <div id="review-container" class="review-list">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 20-Question Comprehensive Database for Past Simple Tense ONLY
+    const quizData = [
+      {
+        id: 1,
+        category: "forms",
+        level: "A1",
+        section: "Regular Verb Spelling",
+        type: "fill",
+        stem: "Complete with the correct past simple spelling: The heavy rain suddenly ________ (stop) at noon.",
+        baseVerb: "stop",
+        acceptableAnswers: ["stopped"],
+        rule: "Rule: Verbs with a single short stressed vowel followed by a single consonant double the final consonant before adding '-ed' (stop -> stopped, plan -> planned)."
+      },
+      {
+        id: 2,
+        category: "aux",
+        level: "A1",
+        section: "The Verb 'To Be'",
+        type: "mcq",
+        stem: "Choose the correct past simple form for the verb 'to be':",
+        options: [
+          "They did be very tired after the long journey.",
+          "They was very tired after the long journey.",
+          "They were very tired after the long journey.",
+          "They weren't be very tired after the long journey."
+        ],
+        correct: 2,
+        rule: "Rule: The verb 'be' conjugates to 'was' (I/he/she/it) and 'were' (you/we/they). It never uses the auxiliary verb 'did'."
+      },
+      {
+        id: 3,
+        category: "forms",
+        level: "A1",
+        section: "Consonant + Y Spelling",
+        type: "fill",
+        stem: "Write the past simple form of the verb in brackets: The porter ________ (carry) all our heavy luggage upstairs.",
+        baseVerb: "carry",
+        acceptableAnswers: ["carried"],
+        rule: "Rule: Verbs ending in a consonant + 'y' drop the 'y' and add '-ied' in the past simple (carry -> carried, study -> studied)."
+      },
+      {
+        id: 4,
+        category: "time",
+        level: "A1",
+        section: "Finished Past Time Words",
+        type: "mcq",
+        stem: "Which sentence correctly pairs a finished past time marker with the Past Simple?",
+        options: [
+          "I have seen that movie yesterday evening.",
+          "I saw that movie yesterday evening.",
+          "I did saw that movie yesterday evening.",
+          "I was seeing that movie yesterday evening and finished it."
+        ],
+        correct: 1,
+        rule: "Rule: Specific finished past time markers like 'yesterday', 'last night', 'in 2015', and 'two hours ago' require the Past Simple ('saw'), never the Present Perfect."
+      },
+      {
+        id: 5,
+        category: "aux",
+        level: "A2",
+        section: "Auxiliary 'Did' with Bare Infinitive",
+        type: "mcq",
+        stem: "Select the grammatically correct negative sentence:",
+        options: [
+          "She didn't bought any fresh bread at the bakery.",
+          "She didn't buy any fresh bread at the bakery.",
+          "She not bought any fresh bread at the bakery.",
+          "She didn't buys any fresh bread at the bakery."
+        ],
+        correct: 1,
+        rule: "Rule: When the auxiliary 'didn't' carries the past tense, the lexical verb must revert to its bare infinitive form ('buy'), not 'bought'."
+      },
+      {
+        id: 6,
+        category: "aux",
+        level: "A2",
+        section: "Question Formation",
+        type: "mcq",
+        stem: "Which of the following is the proper question structure in the Past Simple?",
+        options: [
+          "Where did they went for their summer holidays?",
+          "Where did they go for their summer holidays?",
+          "Where they went for their summer holidays?",
+          "Where went they for their summer holidays?"
+        ],
+        correct: 1,
+        rule: "Rule: Questions with lexical verbs use '(Question word +) did + subject + bare infinitive?' -> 'Where did they go...?'"
+      },
+      {
+        id: 7,
+        category: "time",
+        level: "A2",
+        section: "Sequential Narrative Chain",
+        type: "mcq",
+        stem: "Which sentence depicts a sequence of finished past actions moving chronologically forward?",
+        options: [
+          "He was arriving home, he was making dinner, and he was sleeping.",
+          "He arrived home, he made dinner, and he went to bed.",
+          "He has arrived home, has made dinner, and went to bed.",
+          "He had arrived home, made dinner, and has gone to bed."
+        ],
+        correct: 1,
+        rule: "Rule: Simple tenses express sequential chains of completed events where each action moves forward chronologically in time ('arrived... made... went')."
+      },
+      {
+        id: 8,
+        category: "forms",
+        level: "A1",
+        section: "Irregular Verbs",
+        type: "fill",
+        stem: "Fill in the irregular past simple form: Last night, she ________ (eat) dinner with her colleagues.",
+        baseVerb: "eat",
+        acceptableAnswers: ["ate"],
+        rule: "Rule: 'Eat' is an irregular verb that undergoes a stem change to 'ate' in the affirmative past simple."
+      },
+      {
+        id: 9,
+        category: "aux",
+        level: "A2",
+        section: "Error Spotting",
+        type: "token",
+        stem: "Click on the single word containing the grammatical error in this sentence:",
+        sentence: ["Did", "you", "watched", "the", "football", "match", "last", "night?"],
+        errorIndex: 2,
+        errorCorrection: "watch",
+        rule: "Rule: 'Did' already establishes the past tense. The main verb must be the base form 'watch', not 'watched'."
+      },
+      {
+        id: 10,
+        category: "forms",
+        level: "B1",
+        section: "-ed Pronunciation (/ɪd/)",
+        type: "mcq",
+        stem: "Which regular past tense verb adds an extra syllable pronounced as /ɪd/?",
+        options: [
+          "worked",
+          "cleaned",
+          "started",
+          "played"
+        ],
+        correct: 2,
+        rule: "Rule: Verbs whose base form ends in a /t/ or /d/ sound add a full syllable pronounced /ɪd/ in the past (start -> start-ed /ˈstɑːtɪd/, wait -> wait-ed, need -> need-ed)."
+      },
+      {
+        id: 11,
+        category: "adv",
+        level: "B1",
+        section: "Unreal Conditions (Second Conditional)",
+        type: "mcq",
+        stem: "Complete the unreal hypothetical statement: 'If I ________ (win) the lottery tomorrow, I would buy a large house by the sea.'",
+        options: [
+          "win",
+          "won",
+          "would win",
+          "have won"
+        ],
+        correct: 1,
+        rule: "Rule: We use the Past Simple ('won') in the 'if'-clause of the second conditional to indicate psychological distance from reality (an imaginary present or future scenario)."
+      },
+      {
+        id: 12,
+        category: "aux",
+        level: "A2",
+        section: "Negative Questions with 'Be'",
+        type: "mcq",
+        stem: "Choose the correct negative question for the verb 'to be':",
+        options: [
+          "Didn't they be at the conference yesterday?",
+          "Weren't they at the conference yesterday?",
+          "Did they not were at the conference yesterday?",
+          "Wasn't they at the conference yesterday?"
+        ],
+        correct: 1,
+        rule: "Rule: Negative questions for 'they' with the verb 'be' invert directly: 'Weren't they...?' It never uses 'didn't be'."
+      },
+      {
+        id: 13,
+        category: "time",
+        level: "A2",
+        section: "Finished Time Expression ('Ago')",
+        type: "fill",
+        stem: "Complete the sentence with the past simple: My family ________ (sell) our old apartment six months ago.",
+        baseVerb: "sell",
+        acceptableAnswers: ["sold"],
+        rule: "Rule: The time marker 'ago' signifies a finished point measured backwards from now, requiring the past simple irregular form 'sold'."
+      },
+      {
+        id: 14,
+        category: "adv",
+        level: "B2",
+        section: "Polite Distance in Present Requests",
+        type: "true_false",
+        stem: "True or False: In conversational English, 'I wondered if I could speak to Helen' uses the Past Simple to soften a request and make it more polite right now.",
+        options: [
+          "True (Social distance/politeness in the present)",
+          "False (It can only describe a finished past thought)"
+        ],
+        correct: 0,
+        rule: "Rule: True! Pushing the verb into the Past Simple ('I wondered...', 'I hoped...') creates a polite, respectful buffer when making inquiries in the present."
+      },
+      {
+        id: 15,
+        category: "time",
+        level: "A2",
+        section: "Past Simple vs Present Perfect",
+        type: "mcq",
+        stem: "Which sentence correctly demonstrates how Past Simple gives specific details after a Present Perfect news introduction?",
+        options: [
+          "I've hurt my leg. I fell off a ladder yesterday.",
+          "I hurt my leg. I have fallen off a ladder yesterday.",
+          "I've hurt my leg. I have fallen off a ladder yesterday.",
+          "I was hurting my leg. I had fallen off a ladder."
+        ],
+        correct: 0,
+        rule: "Rule: We often introduce fresh news with the Present Perfect ('I've hurt my leg') and then switch to the Past Simple ('I fell off a ladder yesterday') to deliver the specific details."
+      },
+      {
+        id: 16,
+        category: "adv",
+        level: "B1",
+        section: "Hypothetical 'Wish' & 'It's time'",
+        type: "fill",
+        stem: "Complete with the correct past form: It's very late. It's time we ________ (go) home.",
+        baseVerb: "go",
+        acceptableAnswers: ["went"],
+        rule: "Rule: After expressions like 'It's time...' and 'I wish...', we use the Past Simple ('went') to refer to desired actions in the immediate present."
+      },
+      {
+        id: 17,
+        category: "forms",
+        level: "B1",
+        section: "-ed Pronunciation (/t/ vs /d/)",
+        type: "mcq",
+        stem: "Which of these regular past simple verbs ends in a voiceless /t/ sound?",
+        options: [
+          "laughed",
+          "lived",
+          "rained",
+          "ordered"
+        ],
+        correct: 0,
+        rule: "Rule: 'Laughed' ends with the voiceless sound /f/ (spelled 'gh'), causing the regular '-ed' ending to be pronounced as an unvoiced /t/ (/lɑːft/ or /læft/)."
+      },
+      {
+        id: 18,
+        category: "aux",
+        level: "A2",
+        section: "Error Spotting in Negative Sentence",
+        type: "token",
+        stem: "Click the word that causes the grammatical error in this sentence:",
+        sentence: ["She", "didn't", "went", "to", "school", "because", "she", "was", "ill."],
+        errorIndex: 2,
+        errorCorrection: "go",
+        rule: "Rule: In negative constructions with 'didn't', the main verb must remain in its base form 'go', not 'went'."
+      },
+      {
+        id: 19,
+        category: "time",
+        level: "A1",
+        section: "Finished Historical Period",
+        type: "mcq",
+        stem: "Choose the sentence describing a state completely finished in the past:",
+        options: [
+          "My grandfather worked as a doctor for 40 years before retiring.",
+          "My grandfather has worked as a doctor for 40 years and is still working.",
+          "My grandfather is working as a doctor for 40 years.",
+          "My grandfather works as a doctor for 40 years ago."
+        ],
+        correct: 0,
+        rule: "Rule: When an action or profession is entirely finished and belongs to a past era with no continuation today, we use the Past Simple ('worked')."
+      },
+      {
+        id: 20,
+        category: "adv",
+        level: "B1",
+        section: "Past Simple vs Present Perfect Life Experience",
+        type: "true_false",
+        stem: "True or False: 'He lived in Madrid in 2012' and 'He has lived in Madrid for ten years' have the same grammatical meaning.",
+        options: [
+          "False (Past Simple is completed; Present Perfect continues to now)",
+          "True (Both merely describe living in Madrid)"
+        ],
+        correct: 0,
+        rule: "Rule: False! 'Lived in 2012' is a closed, finished past fact. 'Has lived for ten years' means he started in the past and still lives there today."
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let userAnswers = {};
+    let isInstantFeedback = true;
+    let checkedQuestions = {};
+    let filteredMissedIndices = null;
+
+    // DOM Elements
+    const screenIntro = document.getElementById("screen-intro");
+    const screenQuiz = document.getElementById("screen-quiz");
+    const screenResults = document.getElementById("screen-results");
+
+    const btnStart = document.getElementById("btn-start");
+    const instantToggle = document.getElementById("instant-feedback-toggle");
+    
+    const counterDisplay = document.getElementById("counter-display");
+    const progressPercent = document.getElementById("progress-percent");
+    const progressFill = document.getElementById("progress-fill");
+    const qNavStrip = document.getElementById("q-nav-strip");
+
+    const qSectionBadge = document.getElementById("q-section-badge");
+    const qTypeBadge = document.getElementById("q-type-badge");
+    const qStem = document.getElementById("q-stem");
+    const qInteractiveZone = document.getElementById("q-interactive-zone");
+    const qExplanationBox = document.getElementById("q-explanation-box");
+    const expStatusHeading = document.getElementById("exp-status-heading");
+    const expText = document.getElementById("exp-text");
+
+    const btnPrevQ = document.getElementById("btn-prev-q");
+    const btnNextQ = document.getElementById("btn-next-q");
+    const btnCheckQ = document.getElementById("btn-check-q");
+
+    const resScorePct = document.getElementById("res-score-pct");
+    const resFraction = document.getElementById("res-fraction");
+    const resVerdictTitle = document.getElementById("res-verdict-title");
+    const resVerdictMsg = document.getElementById("res-verdict-msg");
+    
+    const catFormsStat = document.getElementById("cat-forms-stat");
+    const catFormsLabel = document.getElementById("cat-forms-label");
+    const catAuxStat = document.getElementById("cat-aux-stat");
+    const catAuxLabel = document.getElementById("cat-aux-label");
+    const catTimeStat = document.getElementById("cat-time-stat");
+    const catTimeLabel = document.getElementById("cat-time-label");
+    const catAdvStat = document.getElementById("cat-adv-stat");
+    const catAdvLabel = document.getElementById("cat-adv-label");
+
+    const reviewContainer = document.getElementById("review-container");
+    const btnRetake = document.getElementById("btn-retake");
+    const btnFilterMissed = document.getElementById("btn-filter-missed");
+
+    function initApp() {
+      btnStart.addEventListener("click", startAssessment);
+      btnPrevQ.addEventListener("click", () => navigateQuestion(-1));
+      btnNextQ.addEventListener("click", handleNextOrFinish);
+      btnCheckQ.addEventListener("click", checkCurrentAnswer);
+      btnRetake.addEventListener("click", resetQuiz);
+      btnFilterMissed.addEventListener("click", reviewMissedOnly);
+
+      instantToggle.addEventListener("change", (e) => {
+        isInstantFeedback = e.target.checked;
+        updateCheckButtonVisibility();
+      });
+    }
+
+    function startAssessment() {
+      isInstantFeedback = instantToggle.checked;
+      filteredMissedIndices = null;
+      currentQuestionIndex = 0;
+      userAnswers = {};
+      checkedQuestions = {};
+      
+      switchScreen(screenQuiz);
+      buildNavStrip();
+      renderCurrentQuestion();
+    }
+
+    function switchScreen(targetScreen) {
+      document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+      targetScreen.classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function buildNavStrip() {
+      qNavStrip.innerHTML = "";
+      const questionsToUse = getActiveQuestionList();
+
+      questionsToUse.forEach((q, idx) => {
+        const pill = document.createElement("button");
+        pill.className = "q-pill";
+        pill.textContent = idx + 1;
+        pill.addEventListener("click", () => {
+          currentQuestionIndex = idx;
+          renderCurrentQuestion();
+        });
+        qNavStrip.appendChild(pill);
+      });
+      updateNavPills();
+    }
+
+    function getActiveQuestionList() {
+      if (filteredMissedIndices) {
+        return filteredMissedIndices.map(i => quizData[i]);
+      }
+      return quizData;
+    }
+
+    function updateNavPills() {
+      const pills = qNavStrip.querySelectorAll(".q-pill");
+      const list = getActiveQuestionList();
+
+      pills.forEach((p, idx) => {
+        p.classList.remove("active", "answered", "correct", "incorrect");
+        if (idx === currentQuestionIndex) {
+          p.classList.add("active");
+        }
+        
+        const qObj = list[idx];
+        const ans = userAnswers[qObj.id];
+
+        if (ans !== undefined) {
+          if (checkedQuestions[qObj.id]) {
+            const isCorr = isAnswerCorrect(qObj, ans);
+            p.classList.add(isCorr ? "correct" : "incorrect");
+          } else {
+            p.classList.add("answered");
+          }
+        }
+      });
+    }
+
+    function renderCurrentQuestion() {
+      const questions = getActiveQuestionList();
+      const q = questions[currentQuestionIndex];
+      const totalQ = questions.length;
+
+      counterDisplay.textContent = `Question ${currentQuestionIndex + 1} of ${totalQ}`;
+      const pct = Math.round(((currentQuestionIndex + 1) / totalQ) * 100);
+      progressPercent.textContent = `${pct}% Complete`;
+      progressFill.style.width = `${pct}%`;
+
+      qSectionBadge.textContent = `${q.level} • ${q.section}`;
+      
+      let typeLabel = "Multiple Choice";
+      if (q.type === "fill") typeLabel = "Fill-in Form";
+      if (q.type === "token") typeLabel = "Spot the Error";
+      if (q.type === "true_false") typeLabel = "Conceptual True / False";
+      qTypeBadge.textContent = typeLabel;
+
+      qStem.textContent = q.stem;
+
+      qInteractiveZone.innerHTML = "";
+      const savedAnswer = userAnswers[q.id];
+      const isAlreadyChecked = checkedQuestions[q.id];
+
+      if (q.type === "mcq" || q.type === "true_false") {
+        renderChoiceOptions(q, savedAnswer, isAlreadyChecked);
+      } else if (q.type === "fill") {
+        renderFillInput(q, savedAnswer, isAlreadyChecked);
+      } else if (q.type === "token") {
+        renderTokenSelector(q, savedAnswer, isAlreadyChecked);
+      }
+
+      if (isAlreadyChecked) {
+        showExplanation(q, isAnswerCorrect(q, savedAnswer));
+      } else {
+        qExplanationBox.classList.remove("show");
+      }
+
+      btnPrevQ.disabled = (currentQuestionIndex === 0);
+      btnNextQ.innerHTML = (currentQuestionIndex === totalQ - 1)
+        ? `<span>Finish &amp; View Diagnostic</span> <i class="fa-solid fa-flag-checkered"></i>`
+        : `<span>Next Question</span> <i class="fa-solid fa-arrow-right"></i>`;
+
+      updateCheckButtonVisibility();
+      updateNavPills();
+    }
+
+    function renderChoiceOptions(q, savedAnswer, isChecked) {
+      const grid = document.createElement("div");
+      grid.className = "options-grid";
+
+      q.options.forEach((optText, optIdx) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        if (savedAnswer === optIdx) btn.classList.add("selected");
+
+        if (isChecked) {
+          btn.disabled = true;
+          if (optIdx === q.correct) {
+            btn.classList.add("is-correct");
+          } else if (savedAnswer === optIdx) {
+            btn.classList.add("is-wrong");
+          }
+        }
+
+        const marker = document.createElement("span");
+        marker.className = "option-marker";
+        marker.textContent = String.fromCharCode(65 + optIdx);
+
+        const txt = document.createElement("span");
+        txt.textContent = optText;
+
+        btn.appendChild(marker);
+        btn.appendChild(txt);
+
+        btn.addEventListener("click", () => {
+          if (isChecked) return;
+          userAnswers[q.id] = optIdx;
+          renderCurrentQuestion();
+          if (isInstantFeedback) {
+            checkCurrentAnswer();
+          }
+        });
+
+        grid.appendChild(btn);
+      });
+
+      qInteractiveZone.appendChild(grid);
+    }
+
+    function renderFillInput(q, savedAnswer, isChecked) {
+      const wrap = document.createElement("div");
+      wrap.className = "fill-input-box";
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "conjugation-field";
+      input.placeholder = "Type past simple verb here...";
+      input.value = savedAnswer || "";
+      input.disabled = isChecked;
+
+      input.addEventListener("input", (e) => {
+        userAnswers[q.id] = sanitizeInput(e.target.value);
+        updateNavPills();
+      });
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !isChecked && userAnswers[q.id]) {
+          checkCurrentAnswer();
+        }
+      });
+
+      wrap.appendChild(input);
+      qInteractiveZone.appendChild(wrap);
+    }
+
+    function renderTokenSelector(q, savedAnswer, isChecked) {
+      const row = document.createElement("div");
+      row.className = "sentence-tokens-row";
+
+      q.sentence.forEach((word, tokenIdx) => {
+        const tokenBtn = document.createElement("button");
+        tokenBtn.className = "token-btn";
+        tokenBtn.textContent = word;
+
+        if (savedAnswer === tokenIdx) {
+          tokenBtn.classList.add("selected");
+        }
+
+        if (isChecked) {
+          tokenBtn.disabled = true;
+          if (tokenIdx === q.errorIndex) {
+            tokenBtn.style.backgroundColor = "var(--correct-green)";
+            tokenBtn.style.color = "#ffffff";
+            tokenBtn.style.borderColor = "var(--correct-green)";
+          } else if (savedAnswer === tokenIdx) {
+            tokenBtn.style.backgroundColor = "var(--wrong-red)";
+            tokenBtn.style.color = "#ffffff";
+            tokenBtn.style.borderColor = "var(--wrong-red)";
+          }
+        }
+
+        tokenBtn.addEventListener("click", () => {
+          if (isChecked) return;
+          userAnswers[q.id] = tokenIdx;
+          renderCurrentQuestion();
+          if (isInstantFeedback) {
+            checkCurrentAnswer();
+          }
+        });
+
+        row.appendChild(tokenBtn);
+      });
+
+      qInteractiveZone.appendChild(row);
+    }
+
+    function sanitizeInput(str) {
+      return str.trim().toLowerCase().replace(/[.,!?;:'"()]/g, '');
+    }
+
+    function isAnswerCorrect(q, ans) {
+      if (ans === undefined || ans === null) return false;
+      if (q.type === "mcq" || q.type === "true_false") {
+        return ans === q.correct;
+      }
+      if (q.type === "token") {
+        return ans === q.errorIndex;
+      }
+      if (q.type === "fill") {
+        const cleaned = sanitizeInput(String(ans));
+        return q.acceptableAnswers.some(a => sanitizeInput(a) === cleaned);
+      }
+      return false;
+    }
+
+    function updateCheckButtonVisibility() {
+      const questions = getActiveQuestionList();
+      const q = questions[currentQuestionIndex];
+      const ans = userAnswers[q.id];
+      const isAlreadyChecked = checkedQuestions[q.id];
+
+      if (!isInstantFeedback && !isAlreadyChecked && ans !== undefined && ans !== "") {
+        btnCheckQ.style.display = "inline-flex";
+      } else {
+        btnCheckQ.style.display = "none";
+      }
+    }
+
+    function checkCurrentAnswer() {
+      const questions = getActiveQuestionList();
+      const q = questions[currentQuestionIndex];
+      const ans = userAnswers[q.id];
+
+      if (ans === undefined || ans === "") return;
+
+      checkedQuestions[q.id] = true;
+      const correct = isAnswerCorrect(q, ans);
+      showExplanation(q, correct);
+      renderCurrentQuestion();
+    }
+
+    function showExplanation(q, correct) {
+      qExplanationBox.classList.add("show");
+      if (correct) {
+        qExplanationBox.style.borderLeftColor = "var(--correct-green)";
+        expStatusHeading.innerHTML = `<span style="color:var(--correct-green);">Correct!</span> ${q.section}`;
+      } else {
+        qExplanationBox.style.borderLeftColor = "var(--wrong-red)";
+        expStatusHeading.innerHTML = `<span style="color:var(--wrong-red);">Incorrect</span> — Review Rule`;
+      }
+      expText.textContent = q.rule;
+    }
+
+    function navigateQuestion(delta) {
+      const questions = getActiveQuestionList();
+      currentQuestionIndex += delta;
+      if (currentQuestionIndex < 0) currentQuestionIndex = 0;
+      if (currentQuestionIndex >= questions.length) currentQuestionIndex = questions.length - 1;
+      renderCurrentQuestion();
+    }
+
+    function handleNextOrFinish() {
+      const questions = getActiveQuestionList();
+      if (currentQuestionIndex < questions.length - 1) {
+        navigateQuestion(1);
+      } else {
+        finishAndShowResults();
+      }
+    }
+
+    function finishAndShowResults() {
+      let totalCorrect = 0;
+      const totalQ = quizData.length;
+
+      // Diagnostic Category Stats
+      const catStats = {
+        forms: { correct: 0, total: 0 },
+        aux:   { correct: 0, total: 0 },
+        time:  { correct: 0, total: 0 },
+        adv:   { correct: 0, total: 0 }
+      };
+
+      quizData.forEach(q => {
+        catStats[q.category].total++;
+        const userAns = userAnswers[q.id];
+        const isCorr = isAnswerCorrect(q, userAns);
+
+        if (isCorr) {
+          totalCorrect++;
+          catStats[q.category].correct++;
+        }
+      });
+
+      const pctScore = Math.round((totalCorrect / totalQ) * 100);
+
+      resScorePct.textContent = `${pctScore}%`;
+      resFraction.textContent = `${totalCorrect} / ${totalQ} Correct`;
+
+      if (pctScore >= 90) {
+        resVerdictTitle.textContent = "Exceptional Past Simple Mastery!";
+        resVerdictMsg.textContent = "You exhibit complete command over regular/irregular past forms, auxiliary did mechanics, storytelling chains, and advanced subjunctive & polite usage.";
+      } else if (pctScore >= 75) {
+        resVerdictTitle.textContent = "Strong Competence";
+        resVerdictMsg.textContent = "Very well done! Your core grasp of past mechanics is sturdy. Review the bare infinitive rule with 'did' and conditional nuance below.";
+      } else {
+        resVerdictTitle.textContent = "Targeted Review Recommended";
+        resVerdictMsg.textContent = "Good effort! Pay close attention to avoiding double-past forms with 'did' and distinguishing completed past events from present perfect contexts.";
+      }
+
+      renderCategoryBox(catFormsStat, catFormsLabel, catStats.forms);
+      renderCategoryBox(catAuxStat, catAuxLabel, catStats.aux);
+      renderCategoryBox(catTimeStat, catTimeLabel, catStats.time);
+      renderCategoryBox(catAdvStat, catAdvLabel, catStats.adv);
+
+      renderReviewList();
+      switchScreen(screenResults);
+    }
+
+    function renderCategoryBox(statEl, labelEl, data) {
+      statEl.textContent = `${data.correct} / ${data.total}`;
+      const ratio = data.total > 0 ? data.correct / data.total : 0;
+      if (ratio >= 0.8) {
+        labelEl.textContent = "Mastered (Strong)";
+        labelEl.style.color = "var(--correct-green)";
+      } else if (ratio >= 0.6) {
+        labelEl.textContent = "Competent (Minor gaps)";
+        labelEl.style.color = "var(--primary-teal-dark)";
+      } else {
+        labelEl.textContent = "Needs Focus";
+        labelEl.style.color = "var(--wrong-red)";
+      }
+    }
+
+    function renderReviewList() {
+      reviewContainer.innerHTML = "";
+
+      quizData.forEach((q, i) => {
+        const ans = userAnswers[q.id];
+        const pass = isAnswerCorrect(q, ans);
+
+        const card = document.createElement("div");
+        card.className = `review-item ${pass ? 'pass' : 'fail'}`;
+
+        let userAnsText = "Unanswered";
+        let correctAnsText = "";
+
+        if (q.type === "mcq" || q.type === "true_false") {
+          userAnsText = (ans !== undefined) ? q.options[ans] : "Unanswered";
+          correctAnsText = q.options[q.correct];
+        } else if (q.type === "fill") {
+          userAnsText = ans || "Unanswered";
+          correctAnsText = q.acceptableAnswers.join(" / ");
+        } else if (q.type === "token") {
+          userAnsText = (ans !== undefined) ? `Word: "${q.sentence[ans]}"` : "Unanswered";
+          correctAnsText = `Word: "${q.sentence[q.errorIndex]}" -> Correction: "${q.errorCorrection}"`;
+        }
+
+        card.innerHTML = `
+          <div class="review-header">
+            <span style="font-size:13px; font-weight:800; color:var(--primary-teal-dark);">
+              Q${i + 1}: ${q.section} (${q.level})
+            </span>
+            <span style="font-size:12px; font-weight:700; color:${pass ? 'var(--correct-green)' : 'var(--wrong-red)'};">
+              <i class="fa-solid ${pass ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
+              ${pass ? 'Correct' : 'Needs Review'}
+            </span>
+          </div>
+          <p style="font-size:15px; font-weight:700; margin-bottom:8px; color:var(--charcoal);">${q.stem}</p>
+          <div style="font-size:13px; margin-bottom:6px;">
+            <strong>Your answer:</strong> <span style="color:${pass ? 'var(--correct-green)' : 'var(--wrong-red)'}; font-weight:600;">${userAnsText}</span>
+          </div>
+          ${!pass ? `<div style="font-size:13px; margin-bottom:8px;"><strong>Correct answer:</strong> <span style="color:var(--primary-teal-dark); font-weight:700;">${correctAnsText}</span></div>` : ''}
+          <div style="font-size:12px; color:var(--text-muted); background:var(--sand-light); padding:8px 12px; border-radius:6px; margin-top:6px;">
+            ${q.rule}
+          </div>
+        `;
+
+        reviewContainer.appendChild(card);
+      });
+    }
+
+    function resetQuiz() {
+      userAnswers = {};
+      checkedQuestions = {};
+      filteredMissedIndices = null;
+      currentQuestionIndex = 0;
+      switchScreen(screenIntro);
+    }
+
+    function reviewMissedOnly() {
+      const missed = [];
+      quizData.forEach((q, idx) => {
+        const ans = userAnswers[q.id];
+        if (!isAnswerCorrect(q, ans)) {
+          missed.push(idx);
+        }
+      });
+
+      if (missed.length === 0) {
+        return;
+      }
+
+      filteredMissedIndices = missed;
+      currentQuestionIndex = 0;
+      switchScreen(screenQuiz);
+      buildNavStrip();
+      renderCurrentQuestion();
+    }
+
+    window.addEventListener("DOMContentLoaded", initApp);
+  </script>
+</body>
+</html>
